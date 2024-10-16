@@ -1,0 +1,35 @@
+.about__masters {
+  padding: 1.25rem;
+}
+
+.about__masters-search {
+  padding: 0.5rem 1rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.about__masters-masters {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  gap: 1.25rem;
+}
+
+.about__masters-masters__card {
+  background-color: #8ad8cb;
+  padding: 1.25rem 3rem;
+  border-radius: 0.5rem;
+}
+
+.about__masters-masters__card-title {
+  margin: 1rem;
+}
+
+.about__masters-masters__card-info {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+  background-color: #f5c9e1;
+  border-radius: 0.5rem;
+}

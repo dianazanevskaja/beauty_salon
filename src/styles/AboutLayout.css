@@ -1,0 +1,39 @@
+.about {
+  flex: 1;
+  text-align: center;
+  width: calc(100% - 6.5rem);
+}
+
+.about__sidebar {
+  width: fit-content;
+  background-color: #f5f5f5;
+  padding: 1.25rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.about__sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about__sidebar-item {
+  margin-bottom: 1.5rem;
+}
+
+.about__sidebar-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.about__sidebar-link:hover {
+  color: #2a50cd;
+}
