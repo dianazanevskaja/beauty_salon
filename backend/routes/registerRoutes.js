@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
 
-router.post('/api/register', (req, res) => {
+router.post('/', (req, res) => {
   const { firstName, lastName, phone_number, email, birthday, password } = req.body;
 
-  const insertClientQuery = 'INSERT INTO client (firstName, lastName, phone_number, email, birthday, password) VALUES (?, ?, ?, ?, ?, ?)';
+  const insertClientQuery = 'INSERT INTO users (firstName, lastName, birthday, phone_number, email, password, role_id) VALUES (?, ?, ?, ?, ?, ?, 3)';
   db.query(
     insertClientQuery,
-    [firstName, lastName, phone_number, email, birthday, password],
+    [firstName, lastName, birthday, phone_number, email, password],
     (err, result) => {
       if (err) {
         console.log(err);
