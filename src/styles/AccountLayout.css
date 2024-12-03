@@ -1,5 +1,5 @@
 .account__navigation {
-  background-color: #B7DEF0;
+  background-color: #d3d3d3;
 }
 
 .account__navigation-list {
@@ -15,7 +15,7 @@
 }
 
 .account__navigation-item:hover {
-  background-color: rgba(237, 205, 183, 0.8);
+  background-color: rgba(228, 228, 228, 0.8);
 }
 
 .account__navigation-link {
@@ -25,5 +25,5 @@
 }
 
 .account__navigation-link:hover {
-  color: #2300D5;
+  color: #000000;
 }

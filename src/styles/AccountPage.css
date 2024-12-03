@@ -3,7 +3,7 @@
 }
 
 .account-page__info {
-  background-color: #a4d1dd;
+  background-color: #d1d4d4;
   padding: 1.25rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
@@ -27,7 +27,7 @@
 
 .account-page__info .account-page__button {
   padding: 10px 20px;
-  background-color: #27b7a2;
+  background-color: #4e4e4e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -35,5 +35,5 @@
 }
 
 .account-page__info .account-page__button:hover {
-  background-color: #0056b3;
+  background-color: #b1b3bb;
 }
