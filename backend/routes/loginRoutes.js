@@ -5,7 +5,7 @@ const db = require('../config/db');
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
-  const selectClientQuery = 'SELECT * FROM client WHERE email = ?';
+  const selectClientQuery = 'SELECT * FROM users WHERE email = ?';
   db.query(selectClientQuery, [email], (err, result) => {
     if (err) {
       console.log(err);
