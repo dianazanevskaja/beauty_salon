@@ -5,10 +5,14 @@ import '../../styles/MastersAdmin.css';
 const MastersAdmin = () => {
   const [masters, setMasters] = useState([]);
   const [services, setServices] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [workexpiriences, setWorkexpiriences] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [viewModal, setViewModal] = useState(false);
   const [master, setMaster] = useState({
     id: null,
+    master_id: "",
+    coefficient_id: 0,
     firstName: '',
     lastName: '',
     coefficient: 0,
@@ -34,10 +38,30 @@ const MastersAdmin = () => {
       console.error('Error fetching services:', error);
     }
   };
+
+  const fetchUsers = async () => {
+    try {
+      const response = await api.get('/api/clients');
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Error fetching services:', error);
+    }
+  };
+
+  const fetchWorkexpiriences = async () => {
+    try {
+      const response = await api.get('/api/workexpirience');
+      setWorkexpiriences(response.data);
+    } catch (error) {
+      console.error('Error fetching services:', error);
+    }
+  };
   
   useEffect(() => {
     fetchMasters();
     fetchServices();
+    fetchUsers();
+    fetchWorkexpiriences();
   }, []);
 
   const handleChange = (e) => {
@@ -57,6 +81,15 @@ const MastersAdmin = () => {
     }
   };
 
+  const addMaster = () => {
+    setMaster((prevMaster) => ({
+      ...prevMaster,
+      master_id: users[0].id,
+      coefficient_id: workexpiriences[0].id,
+    }));
+    toggleModal();
+  }
+
   const toggleModal = () => {
     setShowModal(!showModal);
   };
@@ -64,8 +97,8 @@ const MastersAdmin = () => {
   const handleAddButton = async (e) => {
   e.preventDefault();
   try {
-    const { selectedServices, ...newMaster } = master;
-    const response = await api.post('/api/masters', newMaster);
+    const { master_id, coefficient_id, selectedServices, ...newMaster } = master;
+    const response = await api.post('/api/masters', {master_id, coefficient_id});
     const masterId = response.data.id;
     console.log(response.data);
 
@@ -82,6 +115,8 @@ const MastersAdmin = () => {
   }
   setMaster({
     id: null,
+    master_id: "",
+    coefficient_id: "",
     firstName: '',
     lastName: '',
     coefficient: 0,
@@ -93,6 +128,8 @@ const MastersAdmin = () => {
   const handleCloseButton = async (e) => {
     setMaster({
       id: null,
+      master_id: "",
+      coefficient_id: "",
       firstName: '',
       lastName: '',
       coefficient: 0,
@@ -115,7 +152,7 @@ const MastersAdmin = () => {
     try {
       const response = await api.get(`/api/master_services`);
       const selectedServices = response.data.filter(
-        (masterService) => masterService.master_id === master.id
+        (masterService) => masterService.master_workexpirience_id === master.id
       ).map((masterService) => masterService.service_id);
       console.log(selectedServices);
       setMaster({
@@ -147,6 +184,8 @@ const MastersAdmin = () => {
     }
     setMaster({
       id: null,
+      master_id: "",
+      coefficient_id: "",
       firstName: '',
       lastName: '',
       coefficient: 0,
@@ -203,7 +242,7 @@ const MastersAdmin = () => {
         onChange={handleSearchChange}
         placeholder="Search masters"
       />
-      <button  className='table__button table__button--add' onClick={toggleModal}>Add Master</button>
+      <button  className='table__button table__button--add' onClick={addMaster}>Add Master</button>
       <table className='admin-masters__table table'>
         <thead>
           <tr className='table__row'>
@@ -224,7 +263,7 @@ const MastersAdmin = () => {
               <td className='table__data'>
                 <button className='table__button table__button--delete' onClick={() => handleDelete(master.id)}>Delete</button>
                 <button className='table__button table__button--edit' onClick={() => handleEdit(master)}>Edit</button>
-                <button className='table__button table__button--view' onClick={() => handleViewButton(master)}>View</button>
+                {/* <button className='table__button table__button--view' onClick={() => handleViewButton(master)}>View</button> */}
               </td>
             </tr>
           ))}
@@ -234,30 +273,30 @@ const MastersAdmin = () => {
         <div className="modal">
           <div className="modal__content">
             <h2 className="modal__title">Master</h2>
-            <input
+            <select
               className="modal__input"
-              type="text"
-              placeholder="First Name"
               onChange={handleChange}
-              value={master.firstName}
-              name="firstName"
-            />
-            <input
+              value={master.master_id}
+              name="master_id"
+            >
+              {users.map((user) => (
+                <option key={user.id} value={user.id}>
+                  {user.firstName} {user.lastName}
+                </option>
+              ))}
+            </select>
+            <select
               className="modal__input"
-              type="text"
-              placeholder="Last Name"
               onChange={handleChange}
-              value={master.lastName}
-              name="lastName"
-            />
-            <input
-              className="modal__input"
-              type="number"
-              placeholder="Coefficient"
-              onChange={handleChange}
-              value={master.coefficient}
-              name="coefficient"
-            />
+              value={master.coefficient_id}
+              name="coefficient_id"
+            >
+              {workexpiriences.map((workexpirience) => (
+                <option key={workexpirience.id} value={workexpirience.id}>
+                  {workexpirience.expiriense}
+                </option>
+              ))}
+            </select>
             <select
               className="modal__input"
               multiple
@@ -280,7 +319,7 @@ const MastersAdmin = () => {
           </div>
         </div>
       )}
-      {viewModal && (
+      {/* {viewModal && (
         <div className="modal">
           <div className="modal__content">
             <h2 className="modal__title">{master.firstName} {master.lastName}</h2>
@@ -309,7 +348,7 @@ const MastersAdmin = () => {
             <button className="modal__button modal__button--close" onClick={handleCloseButton}>Close</button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

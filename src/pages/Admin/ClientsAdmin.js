@@ -12,7 +12,7 @@ const ClientsAdmin = () => {
     lastName: '',
     phone_number: '',
     email: '',
-    birthday: '',
+    birthday: new Date(),
   });
   const [appointments, setAppointments] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -151,7 +151,7 @@ const ClientsAdmin = () => {
         onChange={handleSearchChange}
         placeholder="Search clients"
       />
-      <button className='table__button table__button--add' onClick={toggleModal}>Add Client</button>
+      {/* <button className='table__button table__button--add' onClick={toggleModal}>Add Client</button> */}
       <div className="admin-clients__table table-container">
       <table className='table'>
         <thead>
@@ -177,7 +177,7 @@ const ClientsAdmin = () => {
               <td>
                 <button className='table__button table__button--delete' onClick={() => handleDelete(client.id)}>Delete</button>
                 <button className='table__button table__button--edit' onClick={() => handleEdit(client)}>Edit</button>
-                <button className='table__button table__button--view' onClick={() => handleViewButton(client)}>View</button>
+                {/* <button className='table__button table__button--view' onClick={() => handleViewButton(client)}>View</button> */}
               </td>
             </tr>
           ))}
@@ -225,7 +225,7 @@ const ClientsAdmin = () => {
               type="date"
               placeholder="Birthday"
               onChange={handleChange}
-              value={client.birthday}
+              value={formatDate(client.birthday)}
               name="birthday"
             />
             {client.id ? (
@@ -237,7 +237,7 @@ const ClientsAdmin = () => {
           </div>
         </div>
       )}
-      {viewModal && (
+      {/* {viewModal && (
         <div className="modal">
           <div className="modal__content">
             <h2 className="modal__title">{client.firstName} {client.lastName}</h2>
@@ -266,7 +266,7 @@ const ClientsAdmin = () => {
             <button className="modal__button modal__button--close" onClick={handleCloseButton}>Close</button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
