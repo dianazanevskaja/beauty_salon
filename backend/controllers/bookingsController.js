@@ -4,10 +4,11 @@ const getCorrespondingMasters = (req, res) => {
   const { service_id } = req.body;
 
   const query = `
-    SELECT m.id, m.firstName, m.lastName
-    FROM master m
-    INNER JOIN master_services ms ON m.id = ms.master_id
-    WHERE ms.service_id = ?`;
+  SELECT mw.id, u.id AS master_id, u.firstName, u.lastName
+FROM users AS u
+JOIN master_workexpirience AS mw ON u.id = mw.master_id
+JOIN master_services AS ms ON mw.id = ms.master_workexpirience_id
+WHERE ms.service_id = ?`;
 
   db.query(query, service_id, (err, result) => {
     if (err) {
@@ -23,7 +24,7 @@ const getCorrespondingMasters = (req, res) => {
 const findMasterService = (req, res) => {
   const { master_id, service_id } = req.body;
 
-  const query = 'SELECT * FROM master_services WHERE master_id = ? AND service_id = ?';
+  const query = 'SELECT * FROM master_services WHERE master_workexpirience_id = ? AND service_id = ?';
   const values = [master_id, service_id];
 
   db.query(query, values, (error, results) => {
@@ -44,7 +45,7 @@ const findMasterService = (req, res) => {
 const findClientByEmail = (req, res) => {
   const { email } = req.body;
 
-  const query = 'SELECT * FROM client WHERE email = ?';
+  const query = 'SELECT * FROM users WHERE email = ?';
   db.query(query, email, (error, results) => {
     if (error) {
       console.error('Error retrieving client:', error);
