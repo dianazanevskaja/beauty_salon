@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 const getAllClients = (req, res) => {
-  const clientsData = 'SELECT * FROM client';
+  const clientsData = 'SELECT * FROM users';
   db.query(clientsData, (err, results) => {
     if (err) {
       console.error(err);
@@ -14,7 +14,7 @@ const getAllClients = (req, res) => {
 const createClient = (req, res) => {
   const { firstName, lastName, phone_number, email, birthday } = req.body;
 
-  const insertClientQuery = 'INSERT INTO client (firstName, lastName, phone_number, email, birthday) VALUES (?, ?, ?, ?, ?)';
+  const insertClientQuery = 'INSERT INTO users (firstName, lastName, phone_number, email, birthday) VALUES (?, ?, ?, ?, ?)';
   const values = [firstName, lastName, phone_number, email, birthday];
 
   db.query(insertClientQuery, values, (err, results) => {
@@ -28,10 +28,10 @@ const createClient = (req, res) => {
 
 const updateClient = (req, res) => {
   const id = req.params.id;
-  const { firstName, lastName, phone_number, email, birthday } = req.body;
+  const { firstName, lastName, phone_number, email } = req.body;
 
-  const updateClientQuery = 'UPDATE client SET firstName=?, lastName=?, phone_number=?, email=?, birthday=? WHERE id=?';
-  const values = [firstName, lastName, phone_number, email, birthday, id];
+  const updateClientQuery = 'UPDATE users SET firstName=?, lastName=?, phone_number=?, email=? WHERE id=?';
+  const values = [firstName, lastName, phone_number, email, id];
 
   db.query(updateClientQuery, values, (err) => {
     if (err) {
@@ -45,7 +45,7 @@ const updateClient = (req, res) => {
 const deleteClient = (req, res) => {
   const clientId = req.params.clientId;
 
-  const deleteClientQuery = 'DELETE FROM client WHERE id=?';
+  const deleteClientQuery = 'DELETE FROM users WHERE id=?';
   const values = [clientId];
 
   db.query(deleteClientQuery, values, (err) => {
@@ -61,7 +61,7 @@ const deleteClient = (req, res) => {
 const getClientByEmail = (req, res) => {
   const email = req.params.email;
 
-  db.query('SELECT * FROM client WHERE email = ?', email, (err, result) => {
+  db.query('SELECT * FROM users WHERE email = ?', email, (err, result) => {
     if (err) {
       console.error('Error retrieving user:', err);
       res.status(500).json({ error: 'Error retrieving user' });
