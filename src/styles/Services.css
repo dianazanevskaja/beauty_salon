@@ -28,7 +28,7 @@
 
 .about__services-categories__button {
   padding: 0.5rem 1.25rem;
-  background-color: #c9df9a;
+  background-color: #dddddd;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -36,7 +36,7 @@
 }
 
 .about__services-categories__button.active {
-  background-color: #8bdecf;
+  background-color: #acacac;
 }
 
 .about__services-services {
@@ -50,14 +50,14 @@
   border: 0.125rem solid #ccc;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  background-color: #d3f1b8;
+  background-color: #c2c2c2;
 }
 
 .about__services-services__card-title {
   margin-bottom: 0.75rem;
   padding: 0.5rem;
   text-transform: capitalize;
-  background-color: #a2dfe7;
+  background-color: #dbdbdb;
   border-radius: 0.75rem;
 }
 

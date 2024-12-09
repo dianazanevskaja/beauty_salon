@@ -16,7 +16,7 @@
 }
 
 .about__masters-masters__card {
-  background-color: #8ad8cb;
+  background-color: #c5c5c5;
   padding: 1.25rem 3rem;
   border-radius: 0.5rem;
 }
@@ -30,6 +30,6 @@
   display: flex;
   justify-content: space-between;
   text-transform: capitalize;
-  background-color: #f5c9e1;
+  background-color: #eceaea;
   border-radius: 0.5rem;
 }

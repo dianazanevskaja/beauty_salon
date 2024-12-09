@@ -9,16 +9,16 @@
 }
 
 .admin-masters__table .table__row:nth-of-type(odd) {
-  background-color: rgba(101, 77, 137, 0.4);
+  background-color: rgba(95, 95, 95, 0.4);
 }
 .admin-masters__table .table__row:nth-of-type(even) {
-  background-color: #d2debd;
+  background-color: #a0a0a0;
 }
 
 .admin-masters__table .table__header {
-  background-color: #d3ab8b;
+  background-color: #cecece;
 }
 
 .admin-masters__table .table__data:nth-of-type(even) {
-  background-color: #e7b7e6;
+  background-color: #ececec;
 }

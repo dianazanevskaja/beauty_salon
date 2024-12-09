@@ -17,9 +17,9 @@
 }
 
 .about-schedule__table .table__row:nth-of-type(odd) {
-  background-color: #f9d9ee;
+  background-color: #d6d6d6;
 }
 
 .about-schedule__table .table__header {
-  background-color: #f97878;
+  background-color: #bebebe;
 }

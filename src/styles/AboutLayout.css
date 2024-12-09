@@ -31,9 +31,9 @@
 
 .about__sidebar-link {
   text-decoration: none;
-  color: #333;
+  color: #1f1f1f;
 }
 
 .about__sidebar-link:hover {
-  color: #878788;
+  color: #777777;
 }

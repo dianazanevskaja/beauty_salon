@@ -36,7 +36,7 @@
 
 .login-page__form-button {
   padding: 0.75rem 1.25rem;
-  background-color: #007bff;
+  background-color: #363636;
   color: #fff;
   border: none;
   border-radius: 0.5rem;
@@ -44,13 +44,13 @@
 }
 
 .login-page__form-button:hover {
-  background-color: #0b4583;
+  background-color: #000000;
 }
 
 .login-page__form-button--register {
-  background-color: #40b51f;
+  background-color: #575757;
 }
 
 .login-page__form-button--register:hover {
-  background-color: #367f21;
+  background-color: #424242;
 }

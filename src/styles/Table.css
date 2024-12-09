@@ -4,17 +4,17 @@
 }
 
 .table__row {
-  border-bottom: 0.125rem solid #131596;
+  border-bottom: 0.125rem solid #000000;
 }
 .table__row:nth-of-type(odd) {
-  background-color: #d9f9e3;
+  background-color: #cacaca;
 }
 
 .table__header {
   padding: 0.75rem;
   text-align: left;
   font-weight: bold;
-  background-color: #a1a2ed;
+  background-color: #aaaaaa;
 }
 
 .table__data {
@@ -22,7 +22,7 @@
   text-align: left;
 }
 .table__data:nth-of-type(even) {
-  background-color: #b7d6e7;
+  background-color: #e7e7e7;
 }
 
 .table__button {
@@ -45,7 +45,7 @@
 .table__button--add {
   margin: 0.5rem auto;
   display: block;
-  background-color: #4caf50;
+  background-color: #00a2ff;
 }
 .table__button--view {
   background-color: #4caf50;
@@ -64,7 +64,7 @@
 }
 
 .table__button--add:hover {
-  background-color: #03a9f4;
+  background-color: #1976d2;
 }
 
 .table-container {
