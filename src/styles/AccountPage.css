@@ -25,7 +25,7 @@
   font-weight: bold;
 }
 
-.account-page__info .account-page__button {
+.account-page .account-page__button {
   padding: 10px 20px;
   background-color: #4e4e4e;
   color: white;
@@ -34,6 +34,6 @@
   cursor: pointer;
 }
 
-.account-page__info .account-page__button:hover {
-  background-color: #b1b3bb;
+.account-page .account-page__button:hover {
+  background-color: #7c7c80;
 }

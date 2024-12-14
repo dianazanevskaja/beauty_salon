@@ -19,6 +19,7 @@ import AccountPage from './pages/Account/AccountPage';
 import BookingPage from './pages/Account/BookingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import Gallery from './pages/Gallery/Gallery';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path='login' element={<LoginPage />} />
       <Route path='register' element={<RegisterPage />} />
+      <Route path='gallery' element={<Gallery />} />
     </Route>
   )
 )

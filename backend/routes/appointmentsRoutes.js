@@ -4,7 +4,7 @@ const db = require('../config/db');
 
 router.get('/', (req, res) => {
   const query = `
-  SELECT a.id, u.email, u.firstName, u.lastName, a.date_signup, a.time_signup, m.firstName as masterFirstName, m.lastName as masterLastName, s.name as serviceName, s.price * we.coefficient as price
+  SELECT a.id, a.client_id, u.email, u.firstName, u.lastName, a.date_signup, a.time_signup, mw.master_id, m.firstName as masterFirstName, m.lastName as masterLastName, s.name as serviceName, s.price * we.coefficient as price
   FROM client_master_services a
   INNER JOIN users u ON a.client_id = u.id
   INNER JOIN master_services ms ON a.master_service_id = ms.id

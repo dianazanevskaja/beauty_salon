@@ -95,7 +95,6 @@ const CategoriesAdmin = () => {
       <table className='admin-categories__table table'>
         <thead>
           <tr className='table__row'>
-            <th className='table__header'>Category ID</th>
             <th className='table__header'>Category Name</th>
             <th className='table__header'>Actions</th>
           </tr>
@@ -103,7 +102,6 @@ const CategoriesAdmin = () => {
         <tbody>
           {categories.map((category) => (
             <tr className='table__row' key={category.id}>
-              <td className='table__data'>{category.id}</td>
               <td  className='table__data'>{category.category}</td>
               <td  className='table__data'>
                 <button className='table__button table__button--delete' onClick={() => handleDelete(category.id)}>Delete</button>

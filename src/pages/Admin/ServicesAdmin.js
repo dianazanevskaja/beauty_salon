@@ -121,7 +121,6 @@ const ServicesAdmin = () => {
       <table className="table admin-services__table">
         <thead>
           <tr className="table__row">
-            <th className="table__header">Service ID</th>
             <th className="table__header">Service Name</th>
             <th className="table__header">Category ID</th>
             <th className="table__header">Price</th>
@@ -132,7 +131,6 @@ const ServicesAdmin = () => {
         <tbody>
           {filteredServices.map((service) => (
             <tr className="table__row" key={service.id}>
-              <td className='table__data'>{service.id}</td>
               <td className='table__data'>{service.name}</td>
               <td className='table__data'>{service.category_id}</td>
               <td  className='table__data'>{service.price}</td>

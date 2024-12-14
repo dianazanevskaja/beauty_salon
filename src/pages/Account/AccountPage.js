@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api';
 import '../../styles/AccountPage.css';
+import { isMaster } from '../../utils/auth';
 import ProfilePic from "../../assets/Default_pfp.jpg";
 
 const AccountPage = () => {
+  const isMasterIn = isMaster();
   const [user, setUser] = useState(null);
   const [appointments, setAppointments] = useState([]);
+  const [appointmensMaster, setAppointmentsMaster] = useState([]);
+  const [personalData, setPersonalData] = useState(true); 
 
-  const loadUser = (email) => {
+  const loadUser = async(email) => {
     api.get(`/api/clients/${email}`)
     .then((response) => {
       const userData = response.data;
@@ -17,17 +21,18 @@ const AccountPage = () => {
       console.error('Error retrieving user information:', error);
     });
   }
-  const loadAppointments = async (email) => {
-    const response = await api.get('/api/appointments');
+  const loadAppointments = async (id) => {
+    const response = await api.get('/api/appointments?client_id=');
     const data = response.data;
-    setAppointments(data.filter((appointment) => appointment.email === email));
+    setAppointments(data.filter((appointment) => appointment.client_id == id));
+    setAppointmentsMaster(data.filter((appointment) => appointment.master_id == id));
   };
   
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('user'));
     const email = loggedInUser.email;
     loadUser(email);
-    loadAppointments(email);
+    loadAppointments(loggedInUser.id);
   }, []);
 
   const formatDate = (date) => {
@@ -70,29 +75,62 @@ const AccountPage = () => {
         <p className='account-page__paragraph'>Loading user information...</p>
       )}
     <div>
-      <h1>Appointments</h1>
-      <table className="table">
-        <thead>
-          <tr className='table__row'>
-            <th className="table__header">Date</th>
-            <th className="table__header">Time</th>
-            <th className="table__header">Master</th>
-            <th className="table__header">Service</th>
-            <th className="table__header">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {appointments.map((appointment) => (
-            <tr className="table__row" key={appointment.id}>
-              <td className="table__data">{formatDate(appointment.date_signup)}</td>
-              <td className="table__data">{appointment.time_signup}</td>
-              <td className="table__data">{appointment.masterFirstName} {appointment.masterLastName}</td>
-              <td className="table__data">{appointment.serviceName}</td>
-              <td className="table__data">Br {+appointment.price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {isMasterIn && (<button className='account-page__button' onClick={() => setPersonalData(!personalData)}>{personalData ? "Clients" : "My Appointments"}</button>)}
+      <div>
+        {personalData ? (
+          <>
+            <h1>Appointments</h1>
+            <table className="table">
+              <thead>
+                <tr className='table__row'>
+                  <th className="table__header">Date</th>
+                  <th className="table__header">Time</th>
+                  <th className="table__header">Master</th>
+                  <th className="table__header">Service</th>
+                  <th className="table__header">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {appointments.map((appointment) => (
+                  <tr className="table__row" key={appointment.id}>
+                    <td className="table__data">{formatDate(appointment.date_signup)}</td>
+                    <td className="table__data">{appointment.time_signup}</td>
+                    <td className="table__data">{appointment.masterFirstName} {appointment.masterLastName}</td>
+                    <td className="table__data">{appointment.serviceName}</td>
+                    <td className="table__data">Br {+appointment.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        ) : (
+          <>
+            <h1>Clients</h1>
+            <table className="table">
+              <thead>
+                <tr className='table__row'>
+                  <th className="table__header">Date</th>
+                  <th className="table__header">Time</th>
+                  <th className="table__header">Client</th>
+                  <th className="table__header">Service</th>
+                  <th className="table__header">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {appointmensMaster.map((appointment) => (
+                  <tr className="table__row" key={appointment.id}>
+                    <td className="table__data">{formatDate(appointment.date_signup)}</td>
+                    <td className="table__data">{appointment.time_signup}</td>
+                    <td className="table__data">{appointment.firstName} {appointment.lastName}</td>
+                    <td className="table__data">{appointment.serviceName}</td>
+                    <td className="table__data">Br {+appointment.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        )}
+      </div>
     </div>
     </div>
   );

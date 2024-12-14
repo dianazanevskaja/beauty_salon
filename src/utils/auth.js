@@ -1,7 +1,17 @@
 export const isAuthenticated = () => {
-  // Check if the user is logged in or has data in local storage
   const user = localStorage.getItem('user');
 
-  // Return true if user data exists, indicating the user is authenticated
   return !!user;
+};
+
+export const isMaster = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  return user?.role_id == 2;
+};
+
+export const isAdmin = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  return user?.role_id == 1;
 };

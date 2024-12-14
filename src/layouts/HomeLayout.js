@@ -3,9 +3,11 @@ import { Link, Outlet } from 'react-router-dom';
 import '../styles/HomeLayout.css';
 import '../styles/Table.css';
 import { isAuthenticated } from '../utils/auth';
+import { isAdmin } from '../utils/auth';
 
 const HomeLayout = () => {
   const isLoggedIn = isAuthenticated();
+  const isAdminIn = isAdmin();
 
   return (
     <>
@@ -21,6 +23,9 @@ const HomeLayout = () => {
             <li className="header__nav-item">
               <Link to="about" className='header__link'>About</Link>
             </li>
+            <li className="header__nav-item">
+              <Link to="gallery" className="header__link">Gallery</Link>
+            </li>
             {isLoggedIn ? (
               <li className="header__nav-item">
                 <Link to="account" className='header__link'>Account</Link>
@@ -30,9 +35,9 @@ const HomeLayout = () => {
                 <Link to="login" className='header__link'>Login</Link>
               </li>
             )}
-            <li className="header__nav-item">
+            {isAdminIn && (<li className="header__nav-item">
               <Link to="admin" className='header__link'>Admin</Link>
-            </li>
+            </li>)}
           </ul>
         </nav>
       </header>

@@ -156,7 +156,6 @@ const ClientsAdmin = () => {
       <table className='table'>
         <thead>
           <tr className='table__row'>
-            <th className='table__header'>Client ID</th>
             <th className='table__header'>First Name</th>
             <th className='table__header'>Last Name</th>
             <th className='table__header'>Phone Number</th>
@@ -168,7 +167,6 @@ const ClientsAdmin = () => {
         <tbody>
           {filteredClients.map((client) => (
             <tr className='table__row' key={client.id}>
-              <td className='table__data'>{client.id}</td>
               <td className='table__data'>{client.firstName}</td>
               <td className='table__data'>{client.lastName}</td>
               <td className='table__data'>{client.phone_number}</td>

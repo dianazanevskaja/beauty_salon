@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import '../styles/AdminLayout.css';
 import '../styles/Modal.css';
-import { isAdmin } from '../utils/admin';
+import { isAdmin } from '../utils/auth';
 
 const AdminLayout = () => {
   const isLoggedIn = isAdmin();

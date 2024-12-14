@@ -246,7 +246,6 @@ const MastersAdmin = () => {
       <table className='admin-masters__table table'>
         <thead>
           <tr className='table__row'>
-            <th className='table__header'>Master ID</th>
             <th className='table__header'>First Name</th>
             <th className='table__header'>Last Name</th>
             <th className='table__header'>Coefficient</th>
@@ -256,7 +255,6 @@ const MastersAdmin = () => {
         <tbody>
           {filteredMasters.map((master) => (
             <tr className='table__row' key={master.id}>
-              <td className='table__data'>{master.id}</td>
               <td className='table__data'>{master.firstName}</td>
               <td className='table__data'>{master.lastName}</td>
               <td className='table__data'>{master.coefficient}</td>

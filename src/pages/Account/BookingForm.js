@@ -13,10 +13,49 @@ const BookingForm = () => {
   const [clientId, setClientId] = useState();
   const [masters, setMasters] = useState([]);
   const [services, setServices] = useState([]);
+  const [timeOptions, setTimeOptions] = useState([]);
 
   useEffect(() => {
     fetchServices();
+    generateTimeOptions();
   }, []);
+
+  const generateTimeOptions = () => {
+    const startTime = 9 * 60; // 9:00 в минутах
+    const endTime = 18 * 60; // 18:00 в минутах
+    const timeSlots = [];
+
+    for (let i = startTime; i <= endTime; i += 15) {
+        const hours = Math.floor(i / 60);
+        const minutes = i % 60;
+        const time = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        timeSlots.push(time);
+    }
+
+    setTimeOptions(timeSlots);
+};
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    
+    // Добавляем проверку на выбор времени только в диапазоне от 9:00 до 18:00
+    if (name === 'time') {
+        const selectedTime = value.split(':');
+        const selectedHour = parseInt(selectedTime[0], 10);
+        const selectedMinute = parseInt(selectedTime[1], 10);
+
+        if (selectedHour < 9 || selectedHour > 18 || (selectedHour === 18 && selectedMinute > 0)) {
+            // Выводите сообщение об ошибке или предпримите действия по вашему усмотрению
+            console.log('Please select a time between 9:00 and 18:00');
+            return;
+        }
+    }
+
+    setBookingData((prevData) => ({
+        ...prevData,
+        [name]: value,
+    }));
+};
 
   const fetchServices = async () => {
     api.get('/api/services')
@@ -37,15 +76,7 @@ const BookingForm = () => {
       })
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setBookingData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleServiceChange = (e) => {
+   const handleServiceChange = (e) => {
     handleChange(e);
     fetchMasters(e);
   }
@@ -143,14 +174,18 @@ const BookingForm = () => {
         onChange={handleChange}
       />
 
-      <label className="booking-form__label">Time:</label>
-      <input
-        className="booking-form__input"
-        type="time"
-        name="time"
-        value={bookingData.time}
-        onChange={handleChange}
-      />
+<label className="booking-form__label">Time:</label>
+<select
+    className="booking-form__select"
+    name="time"
+    value={bookingData.time}
+    onChange={handleChange}
+>
+    <option value="">Select a time</option>
+    {timeOptions.map((time) => (
+        <option key={time} value={time}>{time}</option>
+    ))}
+</select>
 
       <label className="booking-form__label">Service:</label>
       <select

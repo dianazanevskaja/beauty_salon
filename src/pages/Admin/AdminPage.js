@@ -1,5 +1,5 @@
 import React from 'react';
-import { isAdmin } from '../../utils/admin';
+import { isAdmin } from '../../utils/auth';
 import AdminLogin from './AdminLogin';
 import api from '../../api';
 import '../../styles/AdminPage.css';
@@ -23,13 +23,13 @@ const AdminPage = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('admin');
+    localStorage.removeItem('user');
     window.location.href = '/';
   };
 
   return (
     <>
-      {isLoggedIn ? (
+      {isLoggedIn && (
         <>
           <h1 className="admin-page__heading">You can work with clients, masters, services, categories</h1>
           <h2 className="admin-page__sub-heading">Add new</h2>
@@ -37,8 +37,6 @@ const AdminPage = () => {
           <h2 className="admin-page__sub-heading">Delete</h2>
           <button className="admin-page__btn" onClick={handleLogout}>Log out</button>
         </>
-      ) : (
-        <AdminLogin onLogin={handleLogin} />
       )}
     </>
   );

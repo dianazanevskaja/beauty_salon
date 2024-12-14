@@ -19,7 +19,8 @@ const LoginPage = () => {
     })
       .then((response) => {
         const data = response.data;
-        localStorage.setItem('user', JSON.stringify(data));
+        const {id, email, role_id} = data;
+        localStorage.setItem('user', JSON.stringify({id, email, role_id}));
         window.location.href = '/account';
       })
       .catch((error) => {

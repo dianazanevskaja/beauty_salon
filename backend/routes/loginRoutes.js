@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const bcrypt = require("bcrypt");
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;
@@ -14,17 +15,19 @@ router.post('/', (req, res) => {
     }
 
     if (result.length === 0) {
-      res.status(401).send({ message: 'User doesn\'t exist' });
+      res.status(400).send({ message: 'User doesn\'t exist' });
       return;
     }
 
     const client = result[0];
-    if (client.password !== password) {
-      res.status(401).send({ message: 'Wrong email/password combination' });
-      return;
-    }
+    bcrypt.compare(password, client.password, (bcryptErr, validPassword) => {
+      if (bcryptErr || !validPassword) {
+        res.status(400).send({ message: 'Wrong email/password combination' });
+        return;
+      }
 
-    res.status(200).send({email: client.email, password: client.password});
+      res.status(200).send(client);
+    });
   });
 });
 
