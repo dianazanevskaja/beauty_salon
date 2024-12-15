@@ -13,8 +13,12 @@
 
 .booking-form__input,
 .booking-form__select {
-  margin-bottom: 1rem;
-  padding: 0.25rem 0.5rem;
+  width: 100%; /* Ширина 100% от родительского элемента */
+  max-width: 250px; /* Максимальная ширина 300px */
+  height: 40px; /* Высота 40px */
+  padding: 0.5rem; /* Внутренние отступы */
+  border: 0.125rem solid #ccc; /* Граница */
+  border-radius: 0.25rem; /* Скругленные углы */
 }
 
 .booking-form__button {
@@ -29,3 +33,50 @@
 .booking-form__button:hover {
   background-color: #4d4d4d;
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .booking-form {
+    padding: 0.75rem;
+  }
+
+  .booking-form__input,
+  .booking-form__select {
+    padding: 0.2rem 0.4rem;
+  }
+
+  .booking-form__button {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-form {
+    padding: 0.5rem;
+  }
+
+  .booking-form__input,
+  .booking-form__select {
+    padding: 0.15rem 0.3rem;
+  }
+
+  .booking-form__button {
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-form {
+    padding: 0.25rem;
+  }
+
+  .booking-form__input,
+  .booking-form__select {
+    padding: 0.1rem 0.2rem;
+  }
+
+  .booking-form__button {
+    padding: 0.2rem 0.4rem;
+  }
+}
+

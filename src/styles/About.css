@@ -1,22 +1,51 @@
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.contact-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .container {
+      max-width: 90%;
+      padding: 15px;
   }
-  
-  h1 {
-    color: #333;
+}
+
+@media (max-width: 768px) {
+  .container {
+      max-width: 100%;
+      padding: 10px;
   }
-  
+
   .contact-info {
-    margin-top: 20px;
-    text-align: left;
+      text-align: left;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .container {
+      padding: 5px;
+  }
+
   .contact-info p {
-    margin: 10px 0;
+      margin: 5px 0;
   }
+}

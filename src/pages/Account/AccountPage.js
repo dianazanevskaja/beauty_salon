@@ -29,7 +29,7 @@ const AccountPage = () => {
   };
   
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem('user'));
+    const loggedInUser = JSON.parse(sessionStorage.getItem('user'));
     const email = loggedInUser.email;
     loadUser(email);
     loadAppointments(loggedInUser.id);
@@ -45,12 +45,12 @@ const AccountPage = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     window.location.href = ('/');
   };
 
   return (
-    <div className="account-page">
+    <section className="account-page">
       <h2 className='account-page__title'>Account Information</h2>
       {user ? (
         <div className="account-page__info">
@@ -79,7 +79,8 @@ const AccountPage = () => {
       <div>
         {personalData ? (
           <>
-            <h1>Appointments</h1>
+            <h2>Appointments</h2>
+            <div className='table-container'>
             <table className="table">
               <thead>
                 <tr className='table__row'>
@@ -102,10 +103,12 @@ const AccountPage = () => {
                 ))}
               </tbody>
             </table>
+            </div>
           </>
         ) : (
           <>
-            <h1>Clients</h1>
+            <h2>Clients</h2>
+            <div className='table-container'>
             <table className="table">
               <thead>
                 <tr className='table__row'>
@@ -128,11 +131,12 @@ const AccountPage = () => {
                 ))}
               </tbody>
             </table>
+            </div>
           </>
         )}
       </div>
     </div>
-    </div>
+    </section>
   );
 };
 

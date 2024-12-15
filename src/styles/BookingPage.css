@@ -22,3 +22,34 @@
   font-weight: bold;
   color: rgb(0, 0, 0);
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .booking-page__title {
+    font-size: 1.75rem;
+  }
+
+  .booking-page__span {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-page__title {
+    font-size: 1.5rem;
+  }
+
+  .booking-page__span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-page__title {
+    font-size: 1.25rem;
+  }
+
+  .booking-page__span {
+    font-size: 0.875rem;
+  }
+}

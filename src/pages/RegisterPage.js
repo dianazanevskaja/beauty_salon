@@ -49,7 +49,7 @@ const RegisterPage = () => {
   }
 
   return (
-    <div className="login-page">
+    <section className="login-page">
       <h2 className="login-page__title">Register</h2>
       <form className="login-page__form" onSubmit={handleRegister}>
         <div className='login-page__form-row'>
@@ -121,7 +121,7 @@ const RegisterPage = () => {
         <button className="login-page__form-button" type="submit">Register</button>
         <button className="login-page__form-button login-page__form-button--register" type="button" onClick={handleLoginButton}>Login</button>
       </form>
-    </div>
+    </section>
   );
 };
 

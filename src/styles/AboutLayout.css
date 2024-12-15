@@ -1,4 +1,4 @@
-.about {
+.about { 
   flex: 1;
   text-align: center;
   width: calc(100% - 6.5rem);
@@ -36,4 +36,51 @@
 
 .about__sidebar-link:hover {
   color: #777777;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .about__sidebar {
+    width: 80%;
+    height: auto;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    width: 100%;
+  }
+
+  .about__sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: auto;
+    right: auto;
+    padding: 1rem;
+  }
+
+  .about__sidebar-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .about__sidebar-item {
+    margin-bottom: 1rem;
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__sidebar-item {
+    flex: 1 1 100%;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
 }

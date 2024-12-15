@@ -37,3 +37,53 @@
 .account-page .account-page__button:hover {
   background-color: #7c7c80;
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .account-page__info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .account-page__image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .account-page__button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .account-page__info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .account-page__image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .account-page__button {
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-page__info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .account-page__image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .account-page__button {
+    padding: 5px 10px;
+  }
+}
+

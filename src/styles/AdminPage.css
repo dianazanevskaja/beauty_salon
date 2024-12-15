@@ -14,3 +14,46 @@
   border-radius: 0.25rem;
   cursor: pointer;
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .admin-page__heading {
+    font-size: 1.5rem;
+  }
+
+  .admin-page__sub-heading {
+    font-size: 1.25rem;
+  }
+
+  .admin-page__btn {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-page__heading {
+    font-size: 1.25rem;
+  }
+
+  .admin-page__sub-heading {
+    font-size: 1rem;
+  }
+
+  .admin-page__btn {
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-page__heading {
+    font-size: 1rem;
+  }
+
+  .admin-page__sub-heading {
+    font-size: 0.875rem;
+  }
+
+  .admin-page__btn {
+    padding: 0.25rem 0.5rem;
+  }
+}

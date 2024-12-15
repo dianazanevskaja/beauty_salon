@@ -26,11 +26,10 @@ const Masters = () => {
     );
     return fullName.toLowerCase().includes(searchQuery.toLowerCase()) || servicesMatch;
   });
-  
 
   return (
-    <div className="about__masters">
-      <h1 className="about__masters-title">Masters</h1>
+    <section className="about__masters">
+      <h2 className="about__masters-title">Masters</h2>
       <input
         className="about__masters-search"
         type="text"
@@ -40,7 +39,7 @@ const Masters = () => {
       />
       <div className="about__masters-masters">
         {filteredMasters.map((master) => (
-          <div key={master.id} className="about__masters-masters__card">
+          <article key={master.id} className="about__masters-masters__card">
             <h2 className="about__masters-masters__card-title">{master.firstName} {master.lastName}</h2>
             <div className="about__masters-masters__card-info">
               <strong>Coefficient:</strong> {master.coefficient}
@@ -48,16 +47,16 @@ const Masters = () => {
             <h3 className="about__masters-masters__card-title">Services:</h3>
             <ul className="about__masters-masters__card-list">
               {master.services.map((service) => (
-                  <li key={service.id} className="about__masters-masters__card-info">
-                    <span>{service.name}</span>{service.category}
-                  </li>
+                <li key={service.id} className="about__masters-masters__card-info">
+                  <span>{service.name}</span>{service.category}
+                </li>
               ))}
-              </ul>
-          </div>
+            </ul>
+          </article>
         ))}
       </div>
-    </div>
-  )
+    </section>
+  );
 };
 
 export default Masters;

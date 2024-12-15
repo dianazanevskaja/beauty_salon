@@ -1,5 +1,6 @@
 .admin-services__title {
   text-align: center;
+  font-size: 2rem; /* Добавлено */
 }
 
 .admin-services__search {
@@ -21,4 +22,55 @@
 
 .admin-services__table .table__data:nth-of-type(even) {
   background-color: #e4e4e4;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .admin-services__title {
+    font-size: 1.75rem;
+  }
+
+  .admin-services__search {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .admin-services__table .table__header,
+  .admin-services__table .table__data {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-services__title {
+    font-size: 1.5rem;
+  }
+
+  .admin-services__search {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .admin-services__table .table__header,
+  .admin-services__table .table__data {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-services__title {
+    font-size: 1.25rem;
+  }
+
+  .admin-services__search {
+    padding: 0.2rem 0.4rem;
+  }
+
+  .admin-services__table .table__header,
+  .admin-services__table .table__data {
+    padding: 0.3rem;
+  }
 }

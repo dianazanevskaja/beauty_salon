@@ -48,3 +48,57 @@
   height: calc(100vh - 5rem);
   background: url('../assets/Beautysalon.jpeg') no-repeat center center/cover;
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__title {
+    font-size: 1.75rem;
+  }
+
+  .header__nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .header__title {
+    font-size: 1.5rem;
+  }
+
+  .header__nav-item {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .home-page {
+    height: calc(100vh - 4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem;
+  }
+
+  .header__title {
+    font-size: 1.25rem;
+  }
+
+  .header__nav-item {
+    padding: 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  .home-page {
+    height: calc(100vh - 3rem);
+  }
+}

@@ -142,8 +142,8 @@ const ClientsAdmin = () => {
   })
 
   return (
-    <div className='admin-clients'>
-      <h1 className='admin-clients__title'>Administrate Clients</h1>
+    <section className='admin-clients'>
+      <h2 className='admin-clients__title'>Administrate Clients</h2>
       <input
         className="admin-clients__search"
         type="text"
@@ -265,7 +265,7 @@ const ClientsAdmin = () => {
           </div>
         </div>
       )} */}
-    </div>
+    </section>
   );
 };
 

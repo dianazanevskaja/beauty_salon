@@ -41,7 +41,9 @@ const HomeLayout = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <main> 
+        <Outlet /> 
+      </main>
     </>
   )
 };

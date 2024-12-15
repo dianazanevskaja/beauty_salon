@@ -33,3 +33,46 @@
   background-color: #eceaea;
   border-radius: 0.5rem;
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .about__masters {
+    padding: 1rem;
+  }
+
+  .about__masters-masters {
+    grid-template-columns: 1fr;
+  }
+
+  .about__masters-masters__card {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__masters {
+    padding: 0.75rem;
+  }
+
+  .about__masters-masters {
+    grid-template-columns: 1fr;
+  }
+
+  .about__masters-masters__card {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__masters {
+    padding: 0.5rem;
+  }
+
+  .about__masters-masters {
+    grid-template-columns: 1fr;
+  }
+
+  .about__masters-masters__card {
+    padding: 0.5rem 1rem;
+  }
+}

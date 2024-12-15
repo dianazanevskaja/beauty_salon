@@ -89,9 +89,10 @@ const CategoriesAdmin = () => {
   console.log(category);
 
   return (
-    <div className='admin-categories'>
-      <h1 className='admin-categories__title'>CategoriesAdmin</h1>
+    <section className='admin-categories'>
+      <h2 className='admin-categories__title'>CategoriesAdmin</h2>
       <button className='table__button table__button--add' onClick={toggleModal}>Add Category</button>
+      <div className='table-container'>
       <table className='admin-categories__table table'>
         <thead>
           <tr className='table__row'>
@@ -111,6 +112,7 @@ const CategoriesAdmin = () => {
           ))}
         </tbody>
       </table>
+      </div>
       {showModal && (
         <div className="modal">
           <div className="modal__content">
@@ -121,7 +123,7 @@ const CategoriesAdmin = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   )
 }
 

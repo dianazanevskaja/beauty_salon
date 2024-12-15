@@ -1,5 +1,6 @@
 .admin-clients__title {
   text-align: center;
+  font-size: 2rem; /* Добавлено */
 }
 
 .admin-clients__search {
@@ -17,4 +18,23 @@
 
 .admin-clients__table .table__header {
   background-color: #b3b3b3;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .admin-clients__title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-clients__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-clients__title {
+    font-size: 1.25rem;
+  }
 }

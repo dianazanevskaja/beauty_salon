@@ -67,3 +67,70 @@
   justify-content: space-between;
   text-transform: capitalize;
 }
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .about__services {
+    padding: 1rem;
+  }
+
+  .about__services-title {
+    font-size: 1.75rem;
+  }
+
+  .about__services-services {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .about__services-services__card {
+    padding: 1rem 1.5rem;
+  }
+
+  .about__services-categories__button {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__services {
+    padding: 0.75rem;
+  }
+
+  .about__services-title {
+    font-size: 1.5rem;
+  }
+
+  .about__services-services {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .about__services-services__card {
+    padding: 0.75rem 1rem;
+  }
+
+  .about__services-categories__button {
+    padding: 0.25rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__services {
+    padding: 0.5rem;
+  }
+
+  .about__services-title {
+    font-size: 1.25rem;
+  }
+
+  .about__services-services {
+    grid-template-columns: 1fr;
+  }
+
+  .about__services-services__card {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .about__services-categories__button {
+    padding: 0.25rem 0.5rem;
+  }
+}

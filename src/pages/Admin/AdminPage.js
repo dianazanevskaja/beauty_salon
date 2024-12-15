@@ -14,7 +14,7 @@ const AdminPage = () => {
     })
     .then((response) => {
       const data = response.data;
-      localStorage.setItem('admin', JSON.stringify(data));
+      sessionStorage.setItem('admin', JSON.stringify(data));
       window.location.href = '/admin';
     })
     .catch((error) => {
@@ -23,22 +23,22 @@ const AdminPage = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     window.location.href = '/';
   };
 
   return (
-    <>
+    <section>
       {isLoggedIn && (
         <>
-          <h1 className="admin-page__heading">You can work with clients, masters, services, categories</h1>
-          <h2 className="admin-page__sub-heading">Add new</h2>
-          <h2 className="admin-page__sub-heading">Edit</h2>
-          <h2 className="admin-page__sub-heading">Delete</h2>
+          <h2 className="admin-page__heading">You can work with clients, masters, services, categories</h2>
+          <h3 className="admin-page__sub-heading">Add new</h3>
+          <h3 className="admin-page__sub-heading">Edit</h3>
+          <h3 className="admin-page__sub-heading">Delete</h3>
           <button className="admin-page__btn" onClick={handleLogout}>Log out</button>
         </>
       )}
-    </>
+    </section>
   );
 };
 

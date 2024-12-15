@@ -1,5 +1,6 @@
 .admin-masters__title {
   text-align: center;
+  font-size: 2rem; /* Добавлено */
 }
 
 .admin-masters__search {
@@ -21,4 +22,28 @@
 
 .admin-masters__table .table__data:nth-of-type(even) {
   background-color: #ececec;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .admin-masters__title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-masters__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-masters__title {
+    font-size: 1.25rem;
+  }
 }

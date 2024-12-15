@@ -20,7 +20,7 @@ const LoginPage = () => {
       .then((response) => {
         const data = response.data;
         const {id, email, role_id} = data;
-        localStorage.setItem('user', JSON.stringify({id, email, role_id}));
+        sessionStorage.setItem('user', JSON.stringify({id, email, role_id}));
         window.location.href = '/account';
       })
       .catch((error) => {
@@ -34,7 +34,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="login-page">
+    <section className="login-page">
       <h2 className="login-page__title">Login</h2>
       <form className="login-page__form" onSubmit={handleLogin}>
         <div className='login-page__form-row'>
@@ -62,7 +62,7 @@ const LoginPage = () => {
         <button className="login-page__form-button" type="submit">Login</button>
         <button className="login-page__form-button login-page__form-button--register" type="button" onClick={handleRegisterButton}>Register</button>
       </form>
-    </div>
+    </section>
   );
 };
 

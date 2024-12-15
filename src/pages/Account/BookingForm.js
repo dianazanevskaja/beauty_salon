@@ -118,7 +118,7 @@ const handleChange = (e) => {
   
   const fetchClientId = async () => {
     try {
-      const user = JSON.parse(localStorage.getItem('user')); // Assuming the user object is stored in localStorage
+      const user = JSON.parse(sessionStorage.getItem('user'));
   
       if (user && user.email) {
         const { email } = user;
@@ -132,7 +132,7 @@ const handleChange = (e) => {
           console.error('Client not found.');
         }
       } else {
-        console.error('User email not found in localStorage');
+        console.error('User email not found in sessionStorage');
       }
     } catch (error) {
       console.error('Error fetching client data:', error);

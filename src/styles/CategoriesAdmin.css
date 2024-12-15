@@ -4,6 +4,7 @@
 
 .admin-categories__title {
   text-align: center;
+  font-size: 2rem; /* Добавлено */
 }
 
 .admin-categories__table .table__row:nth-of-type(odd) {
@@ -20,3 +21,28 @@
 .admin-categories__table .table__data:nth-of-type(even) {
   background-color: #9e9e9e;
 }
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .admin-categories__title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-categories__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-categories__title {
+    font-size: 1.25rem;
+  }
+}
+

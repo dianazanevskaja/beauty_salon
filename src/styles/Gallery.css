@@ -9,7 +9,7 @@
   }
   
   .gallery-image {
-    width: 50%; /* Половина ширины контейнера для каждой картинки */
+    width: 25%; /* Половина ширины контейнера для каждой картинки */
     height: auto; /* Поддержка соотношения сторон */
     box-sizing: border-box; /* Учитывать padding и border в расчетах ширины */
   }
@@ -35,3 +35,38 @@
     max-width: 100%;
     height: 100vn;
   }
+  
+  /* Медиазапросы для адаптивности */
+  @media (max-width: 1200px) {
+    .gallery-image {
+      width: 33.33%;
+    }
+  
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-image {
+      width: 50%;
+    }
+  
+    .modal-content {
+      max-width: 95%;
+      max-height: 95%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-image {
+      width: 50%;
+    }
+  
+    .modal-content {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  

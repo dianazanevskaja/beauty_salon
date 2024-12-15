@@ -108,8 +108,8 @@ const ServicesAdmin = () => {
   );
 
   return (
-    <div className='admin-services'>
-      <h1 className='admin-services__title'>Administrate Services</h1>
+    <section className='admin-services'>
+      <h2 className='admin-services__title'>Administrate Services</h2>
       <input 
         className='admin-services__search'
         type='text'
@@ -118,6 +118,7 @@ const ServicesAdmin = () => {
         placeholder='Search services'
       />
       <button  className='table__button table__button--add' onClick={toggleModal}>Add Service</button>
+      <div className='table-container'>
       <table className="table admin-services__table">
         <thead>
           <tr className="table__row">
@@ -143,6 +144,7 @@ const ServicesAdmin = () => {
           ))}
         </tbody>
       </table>
+      </div>
       {showModal && (
         <div className="modal">
           <div className="modal__content">
@@ -188,7 +190,7 @@ const ServicesAdmin = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   )
 }
 

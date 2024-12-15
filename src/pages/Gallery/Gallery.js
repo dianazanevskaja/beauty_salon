@@ -34,7 +34,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="gallery">
+    <section className="gallery">
       <div className="gallery-images">
         {images.map((image, index) => (
           <img
@@ -53,7 +53,7 @@ const Gallery = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

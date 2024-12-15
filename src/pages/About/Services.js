@@ -36,8 +36,8 @@ const Services = () => {
     .filter((service) => service.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
-    <div className="about__services">
-      <h1 className="about__services-title">Services</h1>
+    <section className="about__services">
+      <h2 className="about__services-title">Services</h2>
       <input 
         className="about__services-search"
         type="text"
@@ -64,7 +64,7 @@ const Services = () => {
       </div>
       <div className="about__services-services">
         {filteredServices.map((service) => (
-          <div key={service.id} className="about__services-services__card">
+          <article key={service.id} className="about__services-services__card">
             <h2 className="about__services-services__card-title">{service.name}</h2>
             <div className="about__services-services__card-info">
               <strong>Category:</strong> {service.category}
@@ -75,10 +75,10 @@ const Services = () => {
             <div className="about__services-services__card-info">
               <strong>Duration:</strong> {service.duration_minutes} minutes
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   )
 };
 

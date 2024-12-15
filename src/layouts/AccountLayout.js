@@ -5,17 +5,21 @@ import "../styles/AccountLayout.css";
 const AccountLayout = () => {
   return (
     <>
-      <nav className="account__navigation">
-        <ul className="account__navigation-list">
-          <li className="account__navigation-item">
-            <Link to="" className="account__navigation-link">Account</Link>
-          </li>
-          <li className="account__navigation-item">
-            <Link to="booking" className="account__navigation-link">Booking</Link>
-          </li>
-        </ul>
-      </nav>
-      <Outlet />
+      <header className="account__navigation">
+        <nav>
+          <ul className="account__navigation-list">
+            <li className="account__navigation-item">
+              <Link to="" className="account__navigation-link">Account</Link>
+            </li>
+            <li className="account__navigation-item">
+              <Link to="booking" className="account__navigation-link">Booking</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 };

@@ -5,8 +5,7 @@ const bcrypt = require("bcrypt");
 
 router.post('/', async (req, res) => {
   const { firstName, lastName, phone_number, email, birthday, password } = req.body;
-
-  // Проверка наличия пользователя с указанным email
+  
   const checkUserQuery = 'SELECT * FROM users WHERE email = ?';
   db.query(checkUserQuery, [email], async (err, result) => {
     if (err) {
@@ -19,8 +18,7 @@ router.post('/', async (req, res) => {
       res.status(400).send({ message: 'User with this email already exists' });
       return;
     }
-
-    // Если пользователя с таким email не существует, хешируем пароль и добавляем нового пользователя
+    
     const hashedPassword = await bcrypt.hash(password, 10);
     const insertClientQuery = 'INSERT INTO users (firstName, lastName, birthday, phone_number, email, password, role_id) VALUES (?, ?, ?, ?, ?, ?, 3)';
     db.query(

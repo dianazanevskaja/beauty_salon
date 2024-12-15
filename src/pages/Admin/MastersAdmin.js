@@ -233,8 +233,8 @@ const MastersAdmin = () => {
   });
 
   return (
-    <div className='admin-masters'>
-      <h1 className='admin-masters__title'>Administrate Masters</h1>
+    <section className='admin-masters'>
+      <h2 className='admin-masters__title'>Administrate Masters</h2>
       <input
         className="admin-masters__search"
         type="text"
@@ -243,6 +243,7 @@ const MastersAdmin = () => {
         placeholder="Search masters"
       />
       <button  className='table__button table__button--add' onClick={addMaster}>Add Master</button>
+      <div className='table-container'>
       <table className='admin-masters__table table'>
         <thead>
           <tr className='table__row'>
@@ -267,6 +268,7 @@ const MastersAdmin = () => {
           ))}
         </tbody>
       </table>
+      </div>
       {showModal && (
         <div className="modal">
           <div className="modal__content">
@@ -347,7 +349,7 @@ const MastersAdmin = () => {
           </div>
         </div>
       )} */}
-    </div>
+    </section>
   );
 };
 

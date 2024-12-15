@@ -7,7 +7,8 @@ import { isAdmin } from '../utils/auth';
 const AdminLayout = () => {
   const isLoggedIn = isAdmin();
   return (
-    <main className="admin-layout">
+    <>
+      <header className="admin-layout">
         <nav className="admin-layout__nav">
           <ul className="admin-layout__nav-list">
             <li className="admin-layout__nav-item">
@@ -33,9 +34,12 @@ const AdminLayout = () => {
             )}
           </ul>
         </nav>
+      </header>
+      <main>
         <Outlet />
       </main>
-  )
-}
+    </>
+  );
+};
 
-export default AdminLayout
+export default AdminLayout;

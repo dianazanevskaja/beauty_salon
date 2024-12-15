@@ -23,3 +23,66 @@
 .about-schedule__table .table__header {
   background-color: #bebebe;
 }
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .about-schedule {
+    margin: 0.75rem;
+  }
+
+  .about-schedule__title {
+    font-size: 1.75rem;
+  }
+
+  .about-schedule__search {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .about-schedule__table .table__header,
+  .about-schedule__table .table__row {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-schedule {
+    margin: 0.5rem;
+  }
+
+  .about-schedule__title {
+    font-size: 1.5rem;
+  }
+
+  .about-schedule__search {
+    padding: 0.3rem 0.6рем;
+  }
+
+  .about-schedule__table .table__header,
+  .about-schedule__table .table__row {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-schedule {
+    margin: 0.25rem;
+  }
+
+  .about-schedule__title {
+    font-size: 1.25rem;
+  }
+
+  .about-schedule__search {
+    padding: 0.2rem 0.4рем;
+  }
+
+  .about-schedule__table .table__header,
+  .about-schedule__table .table__row {
+    padding: 0.3rem;
+  }
+}
